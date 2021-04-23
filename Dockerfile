@@ -25,6 +25,8 @@ RUN sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen \
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
+USER container
+
 # Install NodeJS Dependencies
 RUN npm install -g discord.js \
     && npm install -g @discordjs/opus \
@@ -37,7 +39,6 @@ RUN npm install -g discord.js \
     && npm install -g ffmpeg \
     && npm install -g sodium
 
-USER container
 ENV USER=container HOME=/home/container
 
 WORKDIR /home/container
