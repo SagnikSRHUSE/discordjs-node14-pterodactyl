@@ -23,6 +23,9 @@ RUN sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen \
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
+# Set user
+USER node
+
 # Install NodeJS Dependencies
 RUN npm install -g discord.js \
     && npm install -g @discordjs/opus \
