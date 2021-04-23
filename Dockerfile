@@ -5,8 +5,6 @@ MAINTAINER Sagnik Sasmal, <sagnik@sagnik.me>
 # Ignore APT warnings about not having a TTY
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV NPM_CONFIG_PREFIX=/home/container/.npm-global
-
 # Install OS deps
 RUN apt-get update \
     && apt-get dist-upgrade -y \
@@ -26,6 +24,9 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 USER container
+ENV USER=container HOME=/home/container
+
+ENV NPM_CONFIG_PREFIX=/home/container/.npm-global
 
 # Install NodeJS Dependencies
 RUN npm install -g discord.js \
@@ -38,8 +39,6 @@ RUN npm install -g discord.js \
     && npm install -g utf-8-validate \
     && npm install -g ffmpeg \
     && npm install -g sodium
-
-ENV USER=container HOME=/home/container
 
 WORKDIR /home/container
 
