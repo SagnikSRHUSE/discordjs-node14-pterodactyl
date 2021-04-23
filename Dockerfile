@@ -24,16 +24,16 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 # Install NodeJS Dependencies
-RUN npm install discord.js \
-    && npm install @discordjs/opus \
-    && npm install opusscript \
-    && npm install bufferutil \
-    && npm install libsodium-wrappers \
-    && npm install sqlite3 \
-    && npm install better-sqlite3 \
-    && npm install utf-8-validate \
-    && npm install ffmpeg \
-    && npm install sodium
+RUN npm install -g discord.js \
+    && npm install -g @discordjs/opus \
+    && npm install -g opusscript \
+    && npm install -g bufferutil \
+    && npm install -g libsodium-wrappers \
+    && npm install -g sqlite3 \
+    && npm install -g better-sqlite3 \
+    && npm install -g utf-8-validate \
+    && npm install -g ffmpeg \
+    && npm install -g sodium
 
 USER container
 ENV USER=container HOME=/home/container
