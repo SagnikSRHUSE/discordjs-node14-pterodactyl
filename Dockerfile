@@ -14,7 +14,7 @@ RUN apt-get update \
     && apt-get -y install autoconf automake g++ libtool \
     && apt-get -y install ffmpeg libmp3lame-dev x264 \
     && apt-get -y install sqlite3 libsqlite3-dev \
-    && adduser -D -h /home/container container
+    && useradd -m -d /home/container container
 
 # Ensure UTF-8
 RUN sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen \
