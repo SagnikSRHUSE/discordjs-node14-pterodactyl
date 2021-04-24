@@ -26,21 +26,21 @@ ENV LC_ALL en_US.UTF-8
 USER container
 ENV USER=container HOME=/home/container
 
+WORKDIR /home/container
+
 ENV NPM_CONFIG_PREFIX=/home/container/.npm-global
 
 # Install NodeJS Dependencies
 RUN npm install -g discord.js \
-    && npm install -g @discordjs/opus \
-    && npm install -g opusscript \
-    && npm install -g bufferutil \
-    && npm install -g libsodium-wrappers \
-    && npm install -g sqlite3 \
-    && npm install -g better-sqlite3 \
-    && npm install -g utf-8-validate \
-    && npm install -g ffmpeg \
-    && npm install -g sodium
-
-WORKDIR /home/container
+    && npm install @discordjs/opus \
+    && npm install opusscript \
+    && npm install bufferutil \
+    && npm install libsodium-wrappers \
+    && npm install sqlite3 \
+    && npm install better-sqlite3 \
+    && npm install utf-8-validate \
+    && npm install ffmpeg \
+    && npm install sodium
 
 COPY ./entrypoint.sh /entrypoint.sh
 
